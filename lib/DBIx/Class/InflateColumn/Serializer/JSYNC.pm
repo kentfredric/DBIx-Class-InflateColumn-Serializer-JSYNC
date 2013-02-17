@@ -34,6 +34,14 @@ sub _croak {
   goto \&Carp::croak;
 }
 
+=method get_freezer
+
+    my $freezer = ::JSYNC->get_freezer( $column, $info, $args );
+    my $string = $freezer->( $object );
+    # $data isa string
+
+=cut
+
 sub get_freezer {
   my ( $class, $column, $info, $args ) = @_;
   if ( defined $info->{'size'} ) {
@@ -49,6 +57,13 @@ sub get_freezer {
     return JSYNC::dump( $_[0] );
   };
 }
+
+=method get_unfreezer
+
+    my $unfreezer = ::JSYNC->get_unfreezer( $column, $info, $args );
+    my $object = $unfreezer->( $string );
+
+=cut
 
 sub get_unfreezer {
   return sub {

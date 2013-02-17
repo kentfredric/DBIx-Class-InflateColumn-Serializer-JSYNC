@@ -23,6 +23,19 @@ This is basically the only serialization backend I could find that wasn't "Dumpe
         }
     );
 
+# METHODS
+
+## get\_freezer
+
+    my $freezer = ::JSYNC->get_freezer( $column, $info, $args );
+    my $string = $freezer->( $object );
+    # $data isa string
+
+## get\_unfreezer
+
+    my $unfreezer = ::JSYNC->get_unfreezer( $column, $info, $args );
+    my $object = $unfreezer->( $string );
+
 # AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>
