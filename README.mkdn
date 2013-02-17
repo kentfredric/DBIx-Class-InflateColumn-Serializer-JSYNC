@@ -1,6 +1,6 @@
 # NAME
 
-DBIx::Class::InflateColumn::Serializer::JSYNC - Basic JSON Object Serialization Support.
+DBIx::Class::InflateColumn::Serializer::JSYNC - Basic JSON Object Serialization Support for DBIx::Class.
 
 # VERSION
 

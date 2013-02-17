@@ -3,7 +3,7 @@ use warnings;
 
 package DBIx::Class::InflateColumn::Serializer::JSYNC;
 
-# ABSTRACT: Basic JSON Object Serialization Support.
+# ABSTRACT: Basic JSON Object Serialization Support for DBIx::Class.
 
 use JSYNC;
 
