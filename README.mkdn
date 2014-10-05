@@ -38,7 +38,7 @@ This is basically the only serialization backend I could find that wasn't "Dumpe
 
 # AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
