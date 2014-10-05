@@ -13,6 +13,30 @@ our $VERSION = '0.002000';
 use JSYNC;
 use Carp qw( croak );
 
+sub get_freezer {
+  my ( undef, undef, $col_info, undef ) = @_;
+  if ( defined $col_info->{'size'} ) {
+    my $size = $col_info->{'size'};
+    return sub {
+      my $v = JSYNC::Dumper->new()->dump( $_[0] );
+      croak('Value Serialization is too big')
+        if length($v) > $size;
+      return $v;
+    };
+  }
+  return sub {
+    return JSYNC::Dumper->new()->dump( $_[0] );
+  };
+}
+
+sub get_unfreezer {
+  return sub {
+    return JSYNC::Loader->new()->load( $_[0] );
+  };
+}
+
+1;
+
 =head1 DESCRIPTION
 
 This is basically the only serialization backend I could find that wasn't "Dumper()", and actually seemed to work with arbitrary C<bless()>
@@ -32,32 +56,11 @@ This is basically the only serialization backend I could find that wasn't "Dumpe
     );
 
 
-
-=cut
-
 =method get_freezer
 
     my $freezer = ::JSYNC->get_freezer( $column, $info, $args );
     my $string = $freezer->( $object );
     # $data isa string
-
-=cut
-
-sub get_freezer {
-  my ( undef, undef, $col_info, undef ) = @_;
-  if ( defined $col_info->{'size'} ) {
-    my $size = $col_info->{'size'};
-    return sub {
-      my $v = JSYNC::Dumper->new()->dump( $_[0] );
-      croak('Value Serialization is too big')
-        if length($v) > $size;
-      return $v;
-    };
-  }
-  return sub {
-    return JSYNC::Dumper->new()->dump( $_[0] );
-  };
-}
 
 =method get_unfreezer
 
@@ -65,11 +68,3 @@ sub get_freezer {
     my $object = $unfreezer->( $string );
 
 =cut
-
-sub get_unfreezer {
-  return sub {
-    return JSYNC::Loader->new()->load( $_[0] );
-  };
-}
-
-1;
