@@ -7,6 +7,8 @@ our $VERSION = '0.002000';
 
 # ABSTRACT: Basic JSON Object Serialization Support for DBIx::Class.
 
+# AUTHORITY
+
 use JSYNC;
 
 =head1 DESCRIPTION
