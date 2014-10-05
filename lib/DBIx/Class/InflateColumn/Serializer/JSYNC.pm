@@ -11,6 +11,7 @@ our $VERSION = '0.002000';
 # AUTHORITY
 
 use JSYNC;
+use Carp qw( croak );
 
 =head1 DESCRIPTION
 
@@ -34,11 +35,6 @@ This is basically the only serialization backend I could find that wasn't "Dumpe
 
 =cut
 
-sub _croak {
-  require Carp;
-  goto \&Carp::croak;
-}
-
 =method get_freezer
 
     my $freezer = ::JSYNC->get_freezer( $column, $info, $args );
@@ -48,7 +44,7 @@ sub _croak {
 =cut
 
 sub get_freezer {
-  my ( undef, undef, $info,undef) = @_;
+  my ( undef, undef, $info, undef ) = @_;
   if ( defined $info->{'size'} ) {
     my $size = $info->{'size'};
     return sub {
