@@ -48,7 +48,7 @@ sub _croak {
 =cut
 
 sub get_freezer {
-  my ( $class, $column, $info, $args ) = @_;
+  my ( undef, undef, $info,undef) = @_;
   if ( defined $info->{'size'} ) {
     my $size = $info->{'size'};
     return sub {
