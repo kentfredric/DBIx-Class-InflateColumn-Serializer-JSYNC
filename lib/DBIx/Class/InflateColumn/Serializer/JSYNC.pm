@@ -48,14 +48,14 @@ sub get_freezer {
   if ( defined $info->{'size'} ) {
     my $size = $info->{'size'};
     return sub {
-      my $v = JSYNC::dump( $_[0] );
+      my $v = JSYNC::Dumper->new()->dump( $_[0] );
       croak('Value Serialization is too big')
         if length($v) > $size;
       return $v;
     };
   }
   return sub {
-    return JSYNC::dump( $_[0] );
+    return JSYNC::Dumper->new()->dump( $_[0] );
   };
 }
 
@@ -68,7 +68,7 @@ sub get_freezer {
 
 sub get_unfreezer {
   return sub {
-    return JSYNC::load( $_[0] );
+    return JSYNC::Loader->new()->load( $_[0] );
   };
 }
 
