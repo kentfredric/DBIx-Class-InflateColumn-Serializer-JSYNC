@@ -28,6 +28,5 @@ twitter_extra_hash_tags = #dbic
 ; auto_prereqs_skip = File::Find
 
 [Prereqs]
-Pegex::Base = 0
 JSYNC       = 0
 DBIx::Class::InflateColumn::Serializer = 0
