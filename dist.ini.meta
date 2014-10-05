@@ -8,8 +8,8 @@ copyright_holder = Kent Fredric <kentfredric@gmail.com>
 ; [Bootstrap::lib]
 
 [@Author::KENTNL]
-:version          = 1.2.0
-git_versions      = 1
+:version          = 2.021
+bumpversions = 1
 ; version_major     = 0
 ; version_minor     = 1
 ; the following data denotes when this minor was minted

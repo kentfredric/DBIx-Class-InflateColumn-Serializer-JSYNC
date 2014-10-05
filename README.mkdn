@@ -4,7 +4,7 @@ DBIx::Class::InflateColumn::Serializer::JSYNC - Basic JSON Object Serialization 
 
 # VERSION
 
-version 0.001001
+version 0.002000
 
 # DESCRIPTION
 
