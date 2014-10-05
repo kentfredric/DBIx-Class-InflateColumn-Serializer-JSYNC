@@ -74,6 +74,7 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - ExtUtils::MakeMaker
  - File::Spec
  - Path::Tiny
+ - Test::Fatal
  - parent
 
  [Changed / develop suggests]

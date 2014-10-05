@@ -13,6 +13,7 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - ExtUtils::MakeMaker
  - File::Spec
  - Path::Tiny
+ - Test::Fatal
  - parent
 
  [Changed / test requires]
