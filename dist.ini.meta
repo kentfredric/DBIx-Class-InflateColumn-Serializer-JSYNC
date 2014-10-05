@@ -11,6 +11,8 @@ copyright_holder = Kent Fredric <kentfredric@gmail.com>
 :version          = 2.021
 bumpversions = 1
 copyfiles    = LICENSE
+toolkit      = eumm
+toolkit_hardness = soft
 
 ; version_major     = 0
 ; version_minor     = 1
