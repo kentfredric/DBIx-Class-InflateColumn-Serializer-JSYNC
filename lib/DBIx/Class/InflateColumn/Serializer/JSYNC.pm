@@ -44,9 +44,9 @@ This is basically the only serialization backend I could find that wasn't "Dumpe
 =cut
 
 sub get_freezer {
-  my ( undef, undef, $info, undef ) = @_;
-  if ( defined $info->{'size'} ) {
-    my $size = $info->{'size'};
+  my ( undef, undef, $col_info, undef ) = @_;
+  if ( defined $col_info->{'size'} ) {
+    my $size = $col_info->{'size'};
     return sub {
       my $v = JSYNC::Dumper->new()->dump( $_[0] );
       croak('Value Serialization is too big')
