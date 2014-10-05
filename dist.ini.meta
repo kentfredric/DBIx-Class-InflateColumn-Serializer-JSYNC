@@ -13,6 +13,8 @@ bumpversions = 1
 copyfiles    = LICENSE
 toolkit      = eumm
 toolkit_hardness = soft
+srcreadme       = mkdn
+
 
 ; version_major     = 0
 ; version_minor     = 1
