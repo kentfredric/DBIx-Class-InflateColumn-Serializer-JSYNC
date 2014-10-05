@@ -5,8 +5,15 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - ExtUtils::MakeMaker
 
  [Added / test requires]
+ - DBD::SQLite
+ - DBI
+ - DBIx::Class::Core
+ - DBIx::Class::InflateColumn::Serializer
+ - DBIx::Class::Schema
  - ExtUtils::MakeMaker
  - File::Spec
+ - Path::Tiny
+ - parent
 
  [Changed / test requires]
  - Test::More 0.98 → 0.89
