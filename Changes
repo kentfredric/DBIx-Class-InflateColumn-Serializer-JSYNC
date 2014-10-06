@@ -1,6 +1,8 @@
 Release history for DBIx-Class-InflateColumn-Serializer-JSYNC
 
 {{$NEXT}}
+
+0.002000 2014-10-06T02:56:09Z eb2acc9
  [00 Major - Toolkit changed]
  - This may affect hand operated downstreams.
  - ExtUtils::MakeMaker is now used instead of Module::Build

@@ -4,7 +4,7 @@ use warnings;
 
 package DBIx::Class::InflateColumn::Serializer::JSYNC;
 
-our $VERSION = '0.002000';
+our $VERSION = '0.002001';
 
 # ABSTRACT: Basic JSON Object Serialization Support for DBIx::Class.
 
