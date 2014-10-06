@@ -3,7 +3,7 @@ NAME
     Serialization Support for DBIx::Class.
 
 VERSION
-    version 0.001000
+    version 0.002000
 
 DESCRIPTION
     This is basically the only serialization backend I could find that
@@ -33,10 +33,10 @@ METHODS
         my $object = $unfreezer->( $string );
 
 AUTHOR
-    Kent Fredric <kentfredric@gmail.com>
+    Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Kent Fredric
+    This software is copyright (c) 2014 by Kent Fredric
     <kentfredric@gmail.com>.
 
     This is free software; you can redistribute it and/or modify it under

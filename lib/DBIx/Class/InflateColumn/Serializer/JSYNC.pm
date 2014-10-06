@@ -1,45 +1,37 @@
+use 5.006;    # our
 use strict;
 use warnings;
 
 package DBIx::Class::InflateColumn::Serializer::JSYNC;
-BEGIN {
-  $DBIx::Class::InflateColumn::Serializer::JSYNC::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $DBIx::Class::InflateColumn::Serializer::JSYNC::VERSION = '0.001000';
-}
+
+our $VERSION = '0.002000';
 
 # ABSTRACT: Basic JSON Object Serialization Support for DBIx::Class.
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
 use JSYNC;
-
-
-sub _croak {
-  require Carp;
-  goto \&Carp::croak;
-}
-
+use Carp qw( croak );
 
 sub get_freezer {
-  my ( $class, $column, $info, $args ) = @_;
-  if ( defined $info->{'size'} ) {
-    my $size = $info->{'size'};
+  my ( undef, undef, $col_info, undef ) = @_;
+  if ( defined $col_info->{'size'} ) {
+    my $size = $col_info->{'size'};
     return sub {
-      my $v = JSYNC::dump( $_[0] );
+      my $v = JSYNC::Dumper->new()->dump( $_[0] );
       croak('Value Serialization is too big')
         if length($v) > $size;
       return $v;
     };
   }
   return sub {
-    return JSYNC::dump( $_[0] );
+    return JSYNC::Dumper->new()->dump( $_[0] );
   };
 }
 
-
 sub get_unfreezer {
   return sub {
-    return JSYNC::load( $_[0] );
+    return JSYNC::Loader->new()->load( $_[0] );
   };
 }
 
@@ -49,7 +41,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -57,11 +49,12 @@ DBIx::Class::InflateColumn::Serializer::JSYNC - Basic JSON Object Serialization 
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 DESCRIPTION
 
-This is basically the only serialization backend I could find that wasn't "Dumper()", and actually seemed to work with arbitrary C<bless()>
+This is basically the only serialization backend I could find that wasn't "Dumper()",
+and actually seemed to work with arbitrary C<bless()>
 
     package Foo::Result::Thing;
     __PACKAGE__->load_components('InflateColumn::Serializer', 'Core');
@@ -91,11 +84,11 @@ This is basically the only serialization backend I could find that wasn't "Dumpe
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
