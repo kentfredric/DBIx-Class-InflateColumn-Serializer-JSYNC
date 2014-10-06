@@ -39,7 +39,8 @@ sub get_unfreezer {
 
 =head1 DESCRIPTION
 
-This is basically the only serialization backend I could find that wasn't "Dumper()", and actually seemed to work with arbitrary C<bless()>
+This is basically the only serialization backend I could find that wasn't "Dumper()",
+and actually seemed to work with arbitrary C<bless()>
 
 
     package Foo::Result::Thing;

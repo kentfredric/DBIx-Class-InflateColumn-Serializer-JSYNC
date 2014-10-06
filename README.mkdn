@@ -8,7 +8,8 @@ version 0.002000
 
 # DESCRIPTION
 
-This is basically the only serialization backend I could find that wasn't "Dumper()", and actually seemed to work with arbitrary `bless()`
+This is basically the only serialization backend I could find that wasn't "Dumper()",
+and actually seemed to work with arbitrary `bless()`
 
     package Foo::Result::Thing;
     __PACKAGE__->load_components('InflateColumn::Serializer', 'Core');
