@@ -1,44 +1,42 @@
-NAME
-    DBIx::Class::InflateColumn::Serializer::JSYNC - Basic JSON Object
-    Serialization Support for DBIx::Class.
+DBIx::Class::InflateColumn::Serializer::JSYNC
 
-VERSION
-    version 0.002000
+This is basically the only serialization backend I could find that
+wasn't "Dumper()", and actually seemed to work with arbitrary "bless()"
 
-DESCRIPTION
-    This is basically the only serialization backend I could find that
-    wasn't "Dumper()", and actually seemed to work with arbitrary "bless()"
+    package Foo::Result::Thing;
+    __PACKAGE__->load_components('InflateColumn::Serializer', 'Core');
+    __PACKAGE__->table('thing');
 
-        package Foo::Result::Thing;
-        __PACKAGE__->load_components('InflateColumn::Serializer', 'Core');
-        __PACKAGE__->table('thing');
+    ....
 
-        ....
+    __PACKAGE__->add_column(
+        data => {
+            data_type => 'text',
+            serializer_class => 'JSYNC',
+        }
+    );
 
-        __PACKAGE__->add_column(
-            data => {
-                data_type => 'text',
-                serializer_class => 'JSYNC',
-            }
-        );
+INSTALLATION
 
-METHODS
-  get_freezer
-        my $freezer = ::JSYNC->get_freezer( $column, $info, $args );
-        my $string = $freezer->( $object );
-        # $data isa string
+This is a Perl module distribution. It should be installed with whichever
+tool you use to manage your installation of Perl, e.g. any of
 
-  get_unfreezer
-        my $unfreezer = ::JSYNC->get_unfreezer( $column, $info, $args );
-        my $object = $unfreezer->( $string );
+  cpanm .
+  cpan  .
+  cpanp -i .
 
-AUTHOR
-    Kent Fredric <kentnl@cpan.org>
+Consult http://www.cpan.org/modules/INSTALL.html for further instruction.
+Should you wish to install this module manually, the procedure is
+
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2014 by Kent Fredric
-    <kentfredric@gmail.com>.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This software is copyright (c) 2017 by Kent Fredric
+<kentfredric@gmail.com>.
 
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

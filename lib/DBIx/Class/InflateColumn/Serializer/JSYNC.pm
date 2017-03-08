@@ -4,7 +4,7 @@ use warnings;
 
 package DBIx::Class::InflateColumn::Serializer::JSYNC;
 
-our $VERSION = '0.002000';
+our $VERSION = '0.002001';
 
 # ABSTRACT: Basic JSON Object Serialization Support for DBIx::Class.
 
@@ -49,7 +49,7 @@ DBIx::Class::InflateColumn::Serializer::JSYNC - Basic JSON Object Serialization 
 
 =head1 VERSION
 
-version 0.002000
+version 0.002001
 
 =head1 DESCRIPTION
 
@@ -88,7 +88,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
