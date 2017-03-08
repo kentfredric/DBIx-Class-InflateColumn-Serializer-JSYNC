@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More tests => 3;
 use Path::Tiny;
 require DBI;
 require DBD::SQLite;
@@ -74,6 +74,3 @@ can_ok( $item, 'data' );
 my $data = $item->data;
 can_ok( $data, 'good' );
 ok( $data->good, "blessed item works still" );
-
-done_testing;
-
